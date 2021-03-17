@@ -9,7 +9,7 @@ const fs = require('fs');
 
 /*parses file and returns problem in the following format:
 {
-  target: int
+  target: int,
   pyramid: array
 }
 */
@@ -66,7 +66,6 @@ for(let i = 2; i < process.argv.length; i++) {
     console.log(problem.pyramid[j]);
   }
 
-  //TBD: pass problem data to solvePyramid, return result
   let result = pyramid.solvePyramid(problem.target, problem.pyramid);
 
   if(result === null) {

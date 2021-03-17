@@ -1,13 +1,3 @@
-/*sample test from prompt:
-Target: 720
-2
-4,3
-3,2,6
-2,9,5,2
-10,5,2,15,5
-expected solution: LRLL
-*/
-
 let solution = null;
 
 //Entry function for recursive solution
@@ -22,17 +12,6 @@ const solvePyramid = function(target, pyramid) {
 
   return solution;
 }
-
-
-  //recursive solution:
-  //start at top of pyramid, and traverse nodes on the left and right
-  //at next node, calculate current product of all numbers in sequence and traverse left and right nodes: track current sequence as well
-  //At last line, after calculating sequence:
-  //if product matches target, return the correct sequence.
-  //if product does not match, return ''
-
-  //traversal notes:
-  //left/right should be previous parent index +0 (L) or +1 (R)
 
 //recursive helper function for solvePyramid
 function solvePyramidRecursive(target, pyramid, currentRow, currentCol, currentProduct, currentPath) {
@@ -50,7 +29,6 @@ function solvePyramidRecursive(target, pyramid, currentRow, currentCol, currentP
   //if currentProduct != target, return -1
   //if currentProduct = target, set solution = currentPath
   if(pyramid.length -1 === currentRow) {
-    //TBD: add exit case logic
     if(newProduct !== target) {
       return -1;
     } else {
@@ -60,7 +38,7 @@ function solvePyramidRecursive(target, pyramid, currentRow, currentCol, currentP
   }
   //otherwise, continue recursing
   else {
-    //TBD: copy currentPath to new variable to avoid Javascript pointer issues
+
     let leftPath = currentPath.slice() + 'L';
     let rightPath = currentPath.slice() + 'R';
     solvePyramidRecursive(target, pyramid, currentRow + 1, currentCol, newProduct, leftPath);

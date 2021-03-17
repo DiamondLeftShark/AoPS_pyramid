@@ -63,4 +63,5 @@ for(let i = 2; i < process.argv.length; i++) {
   }
 
   //TBD: pass problem data to solvePyramid, return result
+  let result = pyramid.solvePyramid(problem.target, problem.pyramid);
 }

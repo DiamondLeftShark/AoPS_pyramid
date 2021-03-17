@@ -8,12 +8,21 @@ Target: 720
 expected solution: LRLL
 */
 
-const solution = null;
+let solution = null;
 
-//Given a target number and pyramid of numbers, find sequence of traversal that returns the correct product using every digit visited.
-//
+//Entry function for recursive solution
 const solvePyramid = function(target, pyramid) {
-  console.log("TBD");
+  solution = null;
+
+  let startingProduct = pyramid[0][0];
+
+  solvePyramidRecursive(target, pyramid, 1, 0, startingProduct, 'L');
+  solvePyramidRecursive(target, pyramid, 1, 1, startingProduct, 'R');
+
+  return solution;
+}
+
+
   //recursive solution:
   //start at top of pyramid, and traverse nodes on the left and right
   //at next node, calculate current product of all numbers in sequence and traverse left and right nodes: track current sequence as well
@@ -24,13 +33,34 @@ const solvePyramid = function(target, pyramid) {
   //traversal notes:
   //left/right should be previous parent index +0 (L) or +1 (R)
 
-  return solution;
-}
-
 //recursive helper function for solvePyramid
-function solvePyramidRecursive() {
+function solvePyramidRecursive(target, pyramid, currentRow, currentCol, currentProduct, currentPath) {
+
+  //if solution has already been found, exit out of recursion early.
+  if(solution !== null) {
+    return -1;
+  }
+
+  //check for value at pyramid[currentRow][currentCol], multiply value by currentProduct to get new product
+  let nodeValue = pyramid[currentRow][currentCol];
+  let newProduct = currentProduct * nodeValue;
+
+  //exit case: last row
+  //if currentProduct != target, return -1
+  //if currentProduct = target, set solution = currentPath
+  if(pyramid.length -1 === currentRow) {
+    //TBD: add exit case logic
+    console.log("TBD: end reached!");
+    return 1;
+  }
+  //otherwise, continue recursing
+  else {
+    //TBD: copy currentPath to new variable to avoid Javascript pointer issues
+    solvePyramidRecursive(target, pyramid, currentRow + 1, currentCol, newProduct, /*TBD L*/);
+    solvePyramidRecursive(target, pyramid, currentRow + 1, currentCol + 1, newProduct, /*TBD: R*/)
+  }
 
 }
 
-//TBD: export functions here
+//export declarations
 module.exports.solvePyramid = solvePyramid;

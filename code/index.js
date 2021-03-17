@@ -12,6 +12,7 @@ let solution = null;
 
 //Entry function for recursive solution
 const solvePyramid = function(target, pyramid) {
+  //reset solution each function call
   solution = null;
 
   let startingProduct = pyramid[0][0];
@@ -50,14 +51,20 @@ function solvePyramidRecursive(target, pyramid, currentRow, currentCol, currentP
   //if currentProduct = target, set solution = currentPath
   if(pyramid.length -1 === currentRow) {
     //TBD: add exit case logic
-    console.log("TBD: end reached!");
-    return 1;
+    if(newProduct !== target) {
+      return -1;
+    } else {
+      solution = currentPath;
+      return 1;
+    }
   }
   //otherwise, continue recursing
   else {
     //TBD: copy currentPath to new variable to avoid Javascript pointer issues
-    solvePyramidRecursive(target, pyramid, currentRow + 1, currentCol, newProduct, /*TBD L*/);
-    solvePyramidRecursive(target, pyramid, currentRow + 1, currentCol + 1, newProduct, /*TBD: R*/)
+    let leftPath = currentPath.slice() + 'L';
+    let rightPath = currentPath.slice() + 'R';
+    solvePyramidRecursive(target, pyramid, currentRow + 1, currentCol, newProduct, leftPath);
+    solvePyramidRecursive(target, pyramid, currentRow + 1, currentCol + 1, newProduct, rightPath);
   }
 
 }

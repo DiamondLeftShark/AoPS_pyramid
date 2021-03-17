@@ -64,4 +64,10 @@ for(let i = 2; i < process.argv.length; i++) {
 
   //TBD: pass problem data to solvePyramid, return result
   let result = pyramid.solvePyramid(problem.target, problem.pyramid);
+
+  if(result === null) {
+    console.log("Error: no valid result found!");
+  } else {
+    console.log(`The solution for the target value ${problem.target} is ${result}`);
+  }
 }

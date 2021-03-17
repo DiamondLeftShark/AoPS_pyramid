@@ -8,6 +8,8 @@ Target: 720
 expected solution: LRLL
 */
 
+const solution = null;
+
 //Given a target number and pyramid of numbers, find sequence of traversal that returns the correct product using every digit visited.
 //
 const solvePyramid = function(target, pyramid) {
@@ -21,6 +23,8 @@ const solvePyramid = function(target, pyramid) {
 
   //traversal notes:
   //left/right should be previous parent index +0 (L) or +1 (R)
+
+  return solution;
 }
 
 //recursive helper function for solvePyramid

@@ -4,7 +4,7 @@
   "description": "Programming exercise for AoPS prompt",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node pyramid.js test/test1.txt test/test2.txt test/test3.txt test/test4.txt"
   },
   "author": "Reed Brooks",
   "license": "ISC",

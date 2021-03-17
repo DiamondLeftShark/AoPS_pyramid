@@ -10,7 +10,8 @@ expected solution: LRLL
 
 //Given a target number and pyramid of numbers, find sequence of traversal that returns the correct product using every digit visited.
 //
-function solvePyramid(target, pyramid) {
+const solvePyramid = function(target, pyramid) {
+  console.log("TBD");
   //recursive solution:
   //start at top of pyramid, and traverse nodes on the left and right
   //at next node, calculate current product of all numbers in sequence and traverse left and right nodes: track current sequence as well
@@ -27,9 +28,5 @@ function solvePyramidRecursive() {
 
 }
 
-/*
-Main code starts here:
-1. Get target and pyramid
-2. Pass target and pyramid to solvePyramid
-3. Return solution on command line when complete
-*/
+//TBD: export functions here
+module.exports.solvePyramid = solvePyramid;

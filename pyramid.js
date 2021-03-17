@@ -14,7 +14,7 @@ const fs = require('fs');
 }
 */
 function parseFile(fileName) {
-  console.log(fileName);
+
   let problem = {};
 
   let rawArray = fs.readFileSync(fileName).toString().split(`\n`);
@@ -43,6 +43,10 @@ function parseFile(fileName) {
 }
 
 //main body
+console.log("--------------");
+console.log("PYRAMID SOLVER");
+console.log("--------------");
+
 if(process.argv.length <= 2) {
   console.log("ERROR: no file(s) specified");
   return -1;
@@ -68,6 +72,8 @@ for(let i = 2; i < process.argv.length; i++) {
   if(result === null) {
     console.log("Error: no valid result found!");
   } else {
-    console.log(`The solution for the target value ${problem.target} is ${result}`);
+    console.log(`The solution for the target value of ${problem.target} is ${result}`);
   }
 }
+
+return 1;

@@ -1,0 +1,5 @@
+Expected solutions for each included test file:
+test1: LRLL
+test2: LR
+test3: RR
+test4: no valid result
